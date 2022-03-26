@@ -55,6 +55,7 @@
 </style>
 
 <script>
+import VueSimpleAlert from 'vue-simple-alert'
 export default {
     data(){
         return {
@@ -77,21 +78,21 @@ export default {
             // console.log(this.contactos)
             // validacion de campos vacios
             if(!nombres || !apellidos || !correo || !telefono || !foto){
-                alert('Debes rellenar todos los campos');
+                VueSimpleAlert.alert('Debes rellenar todos los campos');
                 return false;
             }
             // validar longitud de los inputs
             //pueden ajustarlo desde las herramientas de desarrollador validar!!!
             if(nombres.length > 80 || apellidos.length > 80){
-                alert('Maximo 80 caracteres en los nombres y apellidos')
+                VueSimpleAlert.alert('Maximo 80 caracteres en los nombres y apellidos')
                 return false;
             }
              if(telefono.length > 20){
-                alert('Maximo 20 caracteres en el numero de telefono');
+                VueSimpleAlert.alert('Maximo 20 caracteres en el numero de telefono');
                 return false;
             }
             if(foto.length > 255){
-                alert('Maximo 255 caracteres en la direccion de la imagen');
+                VueSimpleAlert.alert('Maximo 255 caracteres en la direccion de la imagen');
                 return false;
             }
             const date = new Date();

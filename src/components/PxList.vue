@@ -67,16 +67,18 @@
 </style>
 <script>
 import {mapState} from 'vuex'
+import VueSimpleAlert from 'vue-simple-alert'
+
 export default {
     computed: {
         ...mapState(['contactos'])
     },
     methods: {
         eliminar(index){
-            let res = confirm('¿Estas seguro que quisieras eliminar este contacto?');
-            if(res){
+            VueSimpleAlert.confirm('¿Estas seguro que quisieras eliminar este contacto?')
+            .then(()=>{
                 this.contactos.splice(index,1);
-            }
+            });
         }
     }
 }
